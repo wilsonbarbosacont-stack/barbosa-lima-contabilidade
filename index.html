@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbosa Lima Contabilidade</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET E ESTILOS GERAIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== MENU DE NAVEGAÇÃO ===== */
+        header {
+            background: #0a1a2f;
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f5b041;
+        }
+        .logo span {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #f5b041;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* ===== SEÇÃO HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #0a1a2f 0%, #1a3a5c 100%);
+            color: #fff;
+            padding: 140px 0 80px;
+            margin-top: 0;
+            text-align: center;
+            border-bottom: 5px solid #f5b041;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #f5b041;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #d4e0ec;
+        }
+
+        .btn-whatsapp-hero {
+            display: inline-block;
+            background: #25d366;
+            color: #fff;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp-hero:hover {
+            background: #1ebe5c;
+            transform: scale(1.05);
+        }
+
+        .btn-whatsapp-hero i {
+            margin-right: 10px;
+        }
+
+        /* ===== SEÇÃO SERVIÇOS ===== */
+        .servicos {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .servicos h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0a1a2f;
+            margin-bottom: 15px;
+        }
+
+        .servicos .subtitulo {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 50px;
+        }
+
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card-servico {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #1a3a5c;
+        }
+
+        .card-servico:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-servico.destaque-bpo {
+            border-top: 5px solid #f5b041;
+            background: #fefcf7;
+        }
+
+        .card-servico i {
+            font-size: 3rem;
+            color: #f5b041;
+            margin-bottom: 20px;
+        }
+
+        .card-servico h3 {
+            font-size: 1.3rem;
+            color: #0a1a2f;
+            margin-bottom: 15px;
+        }
+
+        .card-servico p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .badge-destaque {
+            display: inline-block;
+            background: #f5b041;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* ===== SEÇÃO SOBRE ===== */
+        .sobre {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .sobre-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .sobre-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .sobre-texto h2 {
+            font-size: 2.5rem;
+            color: #0a1a2f;
+            margin-bottom: 20px;
+        }
+
+        .sobre-texto h2 span {
+            color: #f5b041;
+        }
+
+        .sobre-texto p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .sobre-texto .diferenciais {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .sobre-texto .diferenciais li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .sobre-texto .diferenciais li i {
+            color: #f5b041;
+            margin-right: 12px;
+            width: 20px;
+        }
+
+        .sobre-imagem {
+            flex: 1;
+            min-width: 280px;
+            background: #e9edf2;
+            height: 300px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a1a2f;
+            font-size: 1.2rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" fill="%230a1a2f"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 80px;
+            background-color: #f0f4f9;
+        }
+
+        /* ===== SEÇÃO CONTATO ===== */
+        .contato {
+            padding: 80px 0;
+            background: #0a1a2f;
+            color: #fff;
+        }
+
+        .contato h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contato .subtitulo {
+            text-align: center;
+            color: #b0c4d9;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .contato-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .info-contato {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-contato .item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-contato .item i {
+            font-size: 1.5rem;
+            color: #f5b041;
+            width: 40px;
+            text-align: center;
+        }
+
+        .info-contato .item p {
+            color: #d4e0ec;
+            font-size: 1rem;
+        }
+
+        .btn-whatsapp-contato {
+            display: inline-block;
+            background: #25d366;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-whatsapp-contato:hover {
+            background: #1ebe5c;
+        }
+
+        .form-contato input,
+        .form-contato textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #1a3350;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-contato input::placeholder,
+        .form-contato textarea::placeholder {
+            color: #8aa3c0;
+        }
+
+        .form-contato button {
+            background: #f5b041;
+            color: #0a1a2f;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-contato button:hover {
+            background: #e6a130;
+        }
+
+        /* ===== BOTÃO FLUTUANTE WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: #fff;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.8rem;
+            line-height: 65px;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #1ebe5c;
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background: #06101c;
+            color: #8899aa;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        footer span {
+            color: #f5b041;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+                padding-top: 20px;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .sobre-container {
+                flex-direction: column;
+            }
+
+            .contato-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 2.2rem;
+                line-height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== MENU FIXO ===== -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Barbosa Lima <span>Contabilidade</span></div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Contabilidade inteligente<span> para empresas que querem crescer</span></h1>
+            <p>Cuidamos da contabilidade e da gestão financeira da sua empresa com atendimento próximo, processos organizados e informações claras para que você possa focar no crescimento do seu negócio..</p>
+            <a href="#" class="btn-whatsapp-hero" id="whatsappHeroBtn">
+                <i class="fab fa-whatsapp"></i> Fale com a nossa equipe
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== SERVIÇOS ===== -->
+    <section class="servicos" id="servicos">
+        <div class="container">
+            <h2>Nossas Soluções</h2>
+            <p class="subtitulo">Atendimento personalizado para sua empresa com foco em resultados.</p>
+
+            <div class="grid-servicos">
+                <!-- Card Destaque BPO -->
+                <div class="card-servico destaque-bpo">
+                    <span class="badge-destaque">★ Diferencial</span>
+                    <i class="fas fa-chart-line"></i>
+                    <h3>BPO Financeiro</h3>
+                    <p>Organizamos a rotina financeira da sua empresa com controle de contas a pagar e receber, fluxo de caixa, conciliações, relatórios gerenciais e acompanhamento financeiro para apoiar decisões mais assertivas.</p>
+                </div>
+
+                <div class="card-servico">
+                    <i class="fas fa-building"></i>
+                    <h3>Abertura de Empresas</h3>
+                    <p>Auxiliamos na abertura da sua empresa desde a escolha do enquadramento tributário até a regularização junto aos órgãos competentes, tornando todo o processo mais simples e seguro.</p>
+                </div>
+
+                <div class="card-servico">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Contabilidade</h3>
+                    <p>Realizamos a escrituração contábil, fiscal e trabalhista com responsabilidade, garantindo o cumprimento das obrigações legais e oferecendo informações confiáveis para a gestão do negócio.</p>
+                </div>
+
+                <div class="card-servico">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Consultoria Tributária</h3>
+                    <p>Avaliamos o enquadramento tributário da empresa para identificar alternativas legais que contribuam para uma gestão tributária mais eficiente.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOBRE NÓS ===== -->
+    <section class="sobre" id="sobre">
+        <div class="container sobre-container">
+            <div class="sobre-texto">
+                <h2>Quem <span>Somos</span></h2>
+                <p><strong>Barbosa Lima Contabilidade</strong> nasceu com o propósito de oferecer uma contabilidade moderna, acessível e próxima dos empresários..</p>
+                <p>Acreditamos que a contabilidade deve ir além do cumprimento das obrigações fiscais. Nosso objetivo é fornecer informações organizadas, atendimento de qualidade e apoio na gestão financeira para que nossos clientes possam tomar decisões com mais segurança.</p>
+                <p>Trabalhamos com processos digitais, atendimento personalizado e foco na construção de relações de confiança, sempre buscando soluções que agreguem valor ao negócio de cada cliente.</p>
+
+                <ul class="diferenciais">
+                    <li><i class="fas fa-check-circle"></i> Atendimento próximo e personalizado</li>
+                    <li><i class="fas fa-check-circle"></i> Comunicação clara e sem burocracia</li>
+                    <li><i class="fas fa-check-circle"></i> Processos digitais para maior agilidade</li>
+                    <li><i class="fas fa-check-circle"></i> Gestão financeira integrada à contabilidade</li>
+                    <li><i class="fas fa-check-circle"></i> Compromisso com prazos e organização</li>
+                </ul>
+            </div>
+            <div class="sobre-imagem">
+                <!-- Espaço para sua foto ou ilustração -->
+                <span style="background: #0a1a2f; color: #fff; padding: 15px 25px; border-radius: 8px;">Sua equipe</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <h2>Fale Conosco</h2>
+            <p class="subtitulo">Entre em contato e descubra como podemos contribuir para uma gestão financeira mais organizada e uma contabilidade alinhada às necessidades da sua empresa.</p>
+
+            <div class="contato-grid">
+                <div class="info-contato">
+                    <div class="item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><!-- ALTERE AQUI --> Juazeiro do Norte - CE</p>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p><!-- ALTERE AQUI --> (87) 99913-0324</p>
+                    </div>
+                    <div class="item">
+                        <i class="fas fa-envelope"></i>
+                        <p><!-- ALTERE AQUI --> contato@barbosalimacontabilidade.com.br</p>
+                    </div>
+                    <a href="#" class="btn-whatsapp-contato" id="whatsappContatoBtn">
+                        <i class="fab fa-whatsapp"></i> Atendimento pelo WhatsApp
+                    </a>
+                </div>
+
+                <div class="form-contato">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="Seu nome" required>
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <input type="tel" placeholder="Seu telefone">
+                        <textarea rows="4" placeholder="Como podemos ajudar?"></textarea>
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Enviar mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Barbosa Lima Contabilidade</span> | Todos os direitos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">Contabilidade que acompanha o crescimento da sua empresa.</p>
+        </div>
+    </footer>
+
+    <!-- ===== BOTÃO WHATSAPP FLUTUANTE ===== -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Menu Mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link (mobile)
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // ===== CONFIGURAR WHATSAPP =====
+        // ALTERE O NÚMERO ABAIXO (coloque o DDD + número, sem espaços, com 55 na frente)
+        const numeroWhatsApp = '5587999130324'; // <-- ALTERE AQUI
+
+        // Texto padrão para a mensagem
+        const mensagemPadrao = 'Olá! Vim pelo site da Barbosa Lima Contabilidade e gostaria de saber mais sobre os serviços de BPO Financeiro e Contabilidade.';
+
+        // Monta o link
+        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemPadrao)}`;
+
+        // Aplica o link em todos os botões e ícones do WhatsApp
+        document.querySelectorAll('#whatsappHeroBtn, #whatsappContatoBtn, #whatsappFloat').forEach(element => {
+            element.href = linkWhatsApp;
+        });
+
+        // Suavizar rolagem dos links do menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const offsetTop = targetElement.offsetTop - 70; // altura do menu fixo
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
