@@ -315,7 +315,7 @@
 
         .contato-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
             gap: 40px;
         }
 
@@ -366,6 +366,8 @@
         .form-contato {
             width: 100%;
             min-width: 0;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .form-contato form {
@@ -374,8 +376,10 @@
 
         .form-contato input,
         .form-contato textarea {
+            display: block;
             width: 100%;
             max-width: 100%;
+            min-width: 0;
             padding: 15px;
             margin-bottom: 15px;
             border: none;
@@ -489,10 +493,21 @@
 
             .sobre-container {
                 flex-direction: column;
+                width: 100%;
+                min-width: 0;
+            }
+
+            .sobre-texto,
+            .sobre-imagem {
+                width: 100%;
+                min-width: 0;
+                max-width: 100%;
             }
 
             .contato-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
+                width: 100%;
+                min-width: 0;
             }
 
             .whatsapp-float {
