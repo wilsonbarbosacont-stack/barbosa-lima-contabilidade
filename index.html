@@ -454,6 +454,52 @@
             }
         }
     </style>
+
+<!-- ===== DADOS ESTRUTURADOS / SCHEMA.ORG ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "https://barbosalimacontabilidade.com.br/#empresa",
+      "name": "Barbosa Lima Contabilidade",
+      "url": "https://barbosalimacontabilidade.com.br/",
+      "description": "Escritório de contabilidade que oferece serviços contábeis, consultoria tributária, abertura de empresas e gestão financeira para empresas.",
+      "telephone": "+55-87-99913-0324",
+      "email": "contato@barbosalimacontabilidade.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Juazeiro do Norte",
+        "addressRegion": "CE",
+        "addressCountry": "BR"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Juazeiro do Norte"
+      },
+      "serviceType": [
+        "Contabilidade",
+        "BPO Financeiro",
+        "Abertura de Empresas",
+        "Consultoria Tributária"
+      ],
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://barbosalimacontabilidade.com.br/#website",
+      "url": "https://barbosalimacontabilidade.com.br/",
+      "name": "Barbosa Lima Contabilidade",
+      "publisher": {
+        "@id": "https://barbosalimacontabilidade.com.br/#empresa"
+      },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+</script>
+    
 </head>
 <body>
 
