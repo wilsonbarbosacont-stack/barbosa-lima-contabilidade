@@ -737,7 +737,29 @@
 
         // Aplica o link em todos os botões e ícones do WhatsApp
         document.querySelectorAll('#whatsappHeroBtn, #whatsappContatoBtn, #whatsappFloat').forEach(element => {
-            element.href = linkWhatsApp;
+
+    element.href = linkWhatsApp;
+
+    element.addEventListener('click', function () {
+
+        let localBotao = '';
+
+        if (this.id === 'whatsappHeroBtn') {
+            localBotao = 'Hero';
+        } else if (this.id === 'whatsappContatoBtn') {
+            localBotao = 'Contato';
+        } else if (this.id === 'whatsappFloat') {
+            localBotao = 'Flutuante';
+        }
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'clique_whatsapp', {
+                botao: localBotao
+            });
+        }
+    });
+
+});
         });
 
         // Suavizar rolagem dos links do menu
