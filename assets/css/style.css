@@ -1,4 +1,5 @@
- /* ===== AJUSTES GERAIS E RESPONSIVIDADE ===== */
+<style>
+/* ===== AJUSTES GERAIS E RESPONSIVIDADE ===== */
         *,
         *::before,
         *::after {
@@ -496,3 +497,5 @@
                 right: 20px;
             }
         }
+
+</style>
