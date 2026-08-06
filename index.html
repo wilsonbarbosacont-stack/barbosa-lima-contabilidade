@@ -217,73 +217,80 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        // Menu Mobile
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navMenu').classList.toggle('active');
-        });
-
-        // Fechar menu ao clicar em um link (mobile)
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navMenu').classList.remove('active');
-            });
-        });
-
-        // ===== CONFIGURAR WHATSAPP =====
-        const numeroWhatsApp = '5587999130324';
-
-        // Texto padrão para a mensagem
-        const mensagemPadrao = 'Olá! Vim pelo site da Barbosa Lima Contabilidade e gostaria de saber mais sobre os serviços de BPO Financeiro e Contabilidade.';
-
-        // Monta o link
-        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemPadrao)}`;
-
-        // Aplica o link em todos os botões e ícones do WhatsApp
-        document.querySelectorAll('#whatsappHeroBtn, #whatsappContatoBtn, #whatsappFloat').forEach(element => {
-
-    element.href = linkWhatsApp;
-
-    element.addEventListener('click', function () {
-
-        let localBotao = '';
-
-        if (this.id === 'whatsappHeroBtn') {
-            localBotao = 'Hero';
-        } else if (this.id === 'whatsappContatoBtn') {
-            localBotao = 'Contato';
-        } else if (this.id === 'whatsappFloat') {
-            localBotao = 'Flutuante';
-        }
-
-        if (typeof gtag === 'function') {
-            gtag('event', 'clique_whatsapp', {
-                botao: localBotao
-            });
-        }
+<script>
+    // Menu Mobile
+    document.getElementById('menuToggle').addEventListener('click', function () {
+        document.getElementById('navMenu').classList.toggle('active');
     });
 
-});
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navMenu').classList.remove('active');
         });
+    });
 
-        // Suavizar rolagem dos links do menu
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    const offsetTop = targetElement.offsetTop - 70;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
+    // WhatsApp
+    const numeroWhatsApp = '5587999130324';
+    const mensagemPadrao =
+        'Olá! Vim pelo site da Barbosa Lima Contabilidade e gostaria de saber mais sobre os serviços de BPO Financeiro e Contabilidade.';
+
+    const linkWhatsApp =
+        `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemPadrao)}`;
+
+    document.querySelectorAll('#whatsappHeroBtn, #whatsappContatoBtn, #whatsappFloat')
+        .forEach(element => {
+
+            element.href = linkWhatsApp;
+
+            element.addEventListener('click', function () {
+
+                let localBotao = '';
+
+                if (this.id === 'whatsappHeroBtn') {
+                    localBotao = 'Hero';
+                } else if (this.id === 'whatsappContatoBtn') {
+                    localBotao = 'Contato';
+                } else {
+                    localBotao = 'Flutuante';
+                }
+
+                if (typeof gtag === 'function') {
+                    gtag('event', 'clique_whatsapp', {
+                        botao: localBotao
                     });
                 }
+
             });
+
         });
-    </script>
+
+    // Rolagem suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener('click', function (e) {
+
+            const targetId = this.getAttribute('href');
+
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+
+                e.preventDefault();
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+
+            }
+
+        });
+
+    });
+</script>
 
 <script src="assets/js/script.js"></script>
     
